@@ -6,13 +6,16 @@ totp:
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) totp.c -o totp
 
 install: totp
-	mkdir -p $(DESTDIR)$(prefix)/bin
-	mv -f totp $(DESTDIR)$(prefix)/bin
+	@ mkdir -p $(DESTDIR)$(prefix)/bin
+	@ mv -f totp $(DESTDIR)$(prefix)/bin
 
 uninstall:
-	rm -f $(DESTDIR)$(prefix)/bin/totp
+	@ rm -f $(DESTDIR)$(prefix)/bin/totp
+
+format:
+	clang-format -i totp.c
 
 clean:
-	rm -f totp
+	@ rm -f totp
 
 .PHONY: totp install uninstall clean

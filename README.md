@@ -21,13 +21,9 @@ maybe it will be directly integrated in a future version, in the meantime:
 
 ### Add a new TOTP key
 
-    $ echo -n JBSWY3DPEHPK3PXP | base32 -d | secret set test/totp
-    
-### Generate a TOTP token
+    $ echo -n JBSWY3DPEHPK3PXP | base32 -d | ./totp
 
-    $ secret show test/totp | totp
-    $ 123456
-    
 ---
+
 For feature requests and bug reports,
 please create an [issue](https://github.com/angt/totp/issues).
