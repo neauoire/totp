@@ -3,7 +3,10 @@ CFLAGS = -Wall -O2
 prefix = /usr/local
 
 totp:
-	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) totp.c -o totp
+	@ $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) totp.c -o totp
+
+test: totp
+	@ echo -n JBSWY3DPEHPK3PXP | base32 -d | ./totp
 
 install: totp
 	@ mkdir -p $(DESTDIR)$(prefix)/bin
